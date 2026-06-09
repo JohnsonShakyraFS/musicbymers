@@ -1,0 +1,190 @@
+/* =========================
+   BASE RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #f2e8d8;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.navbar {
+  background-image: url("../images/nav-wood.jpg");
+  background-size: cover;
+  background-position: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #f1e5cc;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.hero {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 8rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.hero-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  font-size: 1.5rem;
+}
+
+
+.hero hr {
+  margin: 25px 0 40px;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,.4);
+}
+
+.shelf-container {
+  display: flex;
+  justify-content: center;
+}
+
+.shelf-container img {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.about {
+  width: 85%;
+  max-width: 1200px;
+
+  margin: 100px auto;
+
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 80px;
+
+  align-items: center;
+}
+
+.frame {
+  position: relative;
+
+  width: 350px;
+  height: 500px;
+
+  background-image: url("../images/frame-portrait.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.frame img {
+  position: absolute;
+
+  top: 70px;
+  left: 60px;
+
+  width: 230px;
+  height: 320px;
+
+  object-fit: cover;
+}
+
+.about-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,.85);
+}
+
+.artist-work {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 100px;
+}
+
+.label-frame {
+  width: 600px;
+  height: 150px;
+
+  background-image: url("../images/frame-label.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-frame h3 {
+  color: #2b241d;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.artist-frame {
+  position: relative;
+  max-width: 1000px;
+  margin: 80px auto;
+}
+
+.frame-img {
+  width: 100%;
+  display: block;
+}
+
+.artist-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  text-align: center;
+}
+
+.artist-content h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
