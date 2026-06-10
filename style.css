@@ -6,20 +6,38 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
 body {
-  background-image: url("images/background.png");
+  background-image: url("images/floralbackground.png");
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center top;
   background-attachment: fixed;
+  position: relative;
 
   color: #f2e8d8;
   font-family: "Cormorant Garamond", serif;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.35);
+  z-index: -1;
+}
+
 .navbar {
-  background-image: url("../images/nav-wood.jpg");
-  background-size: cover;
+  background-image: url("images/darkwalnut.png");
+  background-size: 1400px auto;
   background-position: center;
 
   padding: 18px 0;
@@ -70,6 +88,14 @@ body {
   gap: 15px;
 
   font-size: 1.5rem;
+  flex-direction: column;
+}
+
+.hero-roles div{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
 }
 
 
@@ -85,7 +111,7 @@ body {
 }
 
 .shelf-container img {
-  width: 100%;
+  width: 102%;
   max-width: 1200px;
 }
 
@@ -96,43 +122,40 @@ body {
   margin: 100px auto;
 
   display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: 80px;
+  grid-template-columns: 500px 1fr;
+  gap: 60px;
 
   align-items: center;
 }
 
 .frame {
   position: relative;
-
-  width: 350px;
-  height: 500px;
-
-  background-image: url("../images/frame-portrait.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  width: 650px;
+  height: 850px;
 }
 
 .frame img {
   position: absolute;
 
-  top: 70px;
-  left: 60px;
+  top: 45px;
+  left: 45px;
 
-  width: 230px;
-  height: 320px;
 
   object-fit: cover;
 }
 
+.about-content {
+  max-width: 600px;
+}
+
 .about-content h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
 }
 
 .about-content p {
-  font-size: 1.2rem;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.7;
   color: rgba(255,255,255,.85);
 }
 
@@ -187,4 +210,19 @@ body {
   margin-bottom: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+
+@media (max-width: 768px) {
+  .frame {
+    width: 320px;
+    height: 480px;
+  }
+
+  .frame img {
+    width: 200px;
+    height: 300px;
+    top: 70px;
+    left: 60px;
+  }
 }
