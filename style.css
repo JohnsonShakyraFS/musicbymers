@@ -22,6 +22,11 @@
     overflow-x: hidden;
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
 body {
   background: none;
 
@@ -263,49 +268,40 @@ body::after {
 .artist-frame img {
   width: 100%;
   display: block;
+  line-height: 0;
 }
 
 .frame-content {
   position: absolute;
-  inset: 0;
-  padding: 60px 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+
+  /* anchor inside visible frame area */
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 72%;
   text-align: left;
   color: #111;
-  max-width: 85%;
 }
 
 .frame-content h3 {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   font-size: 20px;
   letter-spacing: 1px;
+  display: block;
+}
+
+.frame-content h3::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 1px;
+  background: #111;
+  margin-top: 6px;
 }
 
 .frame-content p {
-  line-height: 1.7;
-  font-size: 15px;
-  margin-bottom: 12px;
-  color: #111;
-}
-
-@media (max-width: 768px) {
-  .frame {
-    width: 320px;
-    height: 480px;
-  }
-
-  .frame img {
-    width: 200px;
-    height: 300px;
-    top: 70px;
-    left: 60px;
-  }
-
-  .artist-frame.left,
-  .artist-frame.right {
-    margin: 0 auto;
-    transform: none;
-  }
+  margin: 0;
+  margin-top: 12px;
+  line-height: 20px;
 }
