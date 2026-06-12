@@ -222,6 +222,60 @@ body::after {
   text-transform: uppercase;
 }
 
+/* ARTIST AT WORK SECTION */
+.artist-at-work {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.artist-title-frame {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.artist-title-frame img {
+  width: 100%;
+  display: block;
+}
+
+.artist-title-frame h2 {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artist-frame {
+  position: relative;
+  width: min(850px, 90%);
+}
+
+.artist-frame img {
+  width: 100%;
+  display: block;
+}
+
+.frame-content {
+  position: absolute;
+  top: 18%;
+  left: 10%;
+  right: 10%;
+  bottom: 15%;
+  overflow: hidden;
+}
+.artist-frame.left {
+  margin-right: auto;
+  transform: translateX(-40px);
+}
+
+.artist-frame.right {
+  margin-left: auto;
+  transform: translateX(40px);
+}
 
 @media (max-width: 768px) {
   .frame {
@@ -234,5 +288,11 @@ body::after {
     height: 300px;
     top: 70px;
     left: 60px;
+  }
+
+  .artist-frame.left,
+  .artist-frame.right {
+    margin: 0 auto;
+    transform: none;
   }
 }
