@@ -1,3 +1,6 @@
+/* ================================
+   CSS VARIABLES
+================================ */
 :root {
   --space-xs: 8px;
   --space-sm: 16px;
@@ -6,34 +9,35 @@
   --space-xl: 80px;
 }
 
-/* =========================
+
+/* ================================
    BASE RESET
-========================= */
+================================ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
 
 body {
   background: none;
-
   color: #f2e8d8;
   font-family: "Cormorant Garamond", serif;
 }
-
 
 body::before {
   content: "";
@@ -49,28 +53,28 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.35);
   z-index: -1;
 }
 
+
+/* ================================
+   NAVIGATION
+================================ */
 .navbar {
   background-image: url("images/darkwalnut.png");
   background-size: 1400px auto;
   background-position: center;
-
   padding: 18px 0;
-
-  border-bottom: 1px solid rgba(255,255,255,.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .navbar ul {
   display: flex;
   justify-content: center;
   gap: 50px;
-
   list-style: none;
   padding: 0;
-
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -78,11 +82,14 @@ body::after {
 .navbar a {
   text-decoration: none;
   color: #f1e5cc;
-
-  font-size: 12px;
+  font-size: 14px; /* bumped up */
   letter-spacing: 2px;
 }
 
+
+/* ================================
+   HERO
+================================ */
 .hero {
   width: 90%;
   max-width: 1400px;
@@ -108,23 +115,21 @@ body::after {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-
-  font-size: 1.5rem;
+  font-size: 1.7rem; /* bumped up */
   flex-direction: column;
 }
 
-.hero-roles div{
+.hero-roles div {
   display: flex;
   flex-direction: row;
   gap: 20px;
   justify-content: center;
 }
 
-
 .hero hr {
   margin: 25px 0 40px;
   border: none;
-  border-top: 1px solid rgba(255,255,255,.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .shelf-container {
@@ -137,14 +142,18 @@ body::after {
   max-width: 1200px;
 }
 
+
+/* ================================
+   ABOUT
+================================ */
 .about {
   width: 85%;
   max-width: 1200px;
   margin: var(--space-xl) auto;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
 }
 
 .frame {
@@ -157,93 +166,52 @@ body::after {
   object-fit: contain;
 }
 
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: -20px;
+}
+
+.about-image .frame {
+  width: 80%;
+}
+
+.about-image .frame img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .about-content {
-  max-width: 600px;
+  max-width: 500px;
+  margin-right: 40px;
 }
 
 .about-content h2 {
-  font-size: 2.2rem;
+  font-size: 2.6rem; /* bumped up */
   margin-bottom: 15px;
 }
 
 .about-content p {
-  font-size: 1rem;
+  font-size: 1.1rem; /* bumped up */
   line-height: 1.7;
-  color: rgba(255,255,255,.85);
-}
-
-.artist-work {
-  display: flex;
-  justify-content: center;
-
-  margin-bottom: 100px;
-}
-
-.label-frame {
-  width: 600px;
-  height: 150px;
-
-  background-image: url("../images/frame-label.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.label-frame h3 {
-  color: #2b241d;
-  font-size: 2rem;
-  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600; /* bolder */
 }
 
 
-.artist-frame:nth-child(odd) {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.artist-frame:nth-child(even) {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.frame-img {
-  width: 100%;
-  display: block;
-}
-
-.artist-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  text-align: center;
-}
-
-.artist-content h3 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* ARTIST AT WORK SECTION */
+/* ================================
+   ARTIST AT WORK
+================================ */
 .artist-at-work {
   width: min(1200px, 90%);
   margin: var(--space-xl) auto;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
   color: #111;
-}
-
-.artist-frame {
-  width: min(850px, 90%);
-  margin: 0 auto;
-  position: relative;
 }
 
 .artist-title-frame {
@@ -263,35 +231,50 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem; /* bumped up */
+}
+
+.artist-frame {
+  width: min(850px, 90%);
+  margin: 0 auto;
+  position: relative;
+}
+
+.artist-frame:nth-child(odd) {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.artist-frame:nth-child(even) {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .artist-frame img {
   width: 100%;
+  height: auto;
   display: block;
   line-height: 0;
 }
 
-.frame-content {
+.artist-frame-content {
   position: absolute;
-
-  /* anchor inside visible frame area */
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 72%;
-  text-align: left;
-  color: #111;
+  inset: 0;
+  padding: 12% 10% 12% 14%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
-.frame-content h3 {
-  margin-bottom: 8px;
-  font-size: 20px;
-  letter-spacing: 1px;
-  display: block;
+.artist-frame-content h3 {
+  font-size: 26px; /* bumped up */
+  margin: 0 0 8px;
+  flex-shrink: 0;
 }
 
-.frame-content h3::after {
+.artist-frame-content h3::after {
   content: "";
   display: block;
   width: 55px;
@@ -300,8 +283,676 @@ body::after {
   margin-top: 6px;
 }
 
-.frame-content p {
+.artist-frame-content p {
+  font-size: 17px;
+  line-height: 1.4;
   margin: 0;
-  margin-top: 12px;
-  line-height: 20px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: auto;
+}
+
+.label-frame {
+  width: 600px;
+  height: 150px;
+  background-image: url("../images/frame-label.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-frame h3 {
+  color: #2b241d;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.artist-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  text-align: center;
+}
+
+.artist-content h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.artist-work {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.frame-img {
+  width: 100%;
+  display: block;
+}
+
+
+/* ================================
+   MUSICAL LANDSCAPE
+================================ */
+.musical-landscape {
+  width: min(1200px, 90%);
+  margin: var(--space-xl) auto;
+}
+
+.ml-header {
+  margin-bottom: 40px;
+}
+
+.ml-header h2 {
+  font-size: 2.6rem; /* bumped up */
+  font-weight: 400;
+  color: #f2e8d8;
+  margin-bottom: 6px;
+}
+
+.ml-header p {
+  font-size: 1.1rem; /* bumped up */
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.gallery-wall {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: end;
+}
+
+.gallery-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px 12px;
+  background: #e8dcc8;
+  border: 6px solid #8b6914;
+  box-shadow:
+    inset 0 0 0 2px #c9a227,
+    inset 0 0 0 4px #6b4f0f,
+    0 4px 20px rgba(0, 0, 0, 0.5);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem; /* bumped up */
+  color: #2b241d;
+  line-height: 1.4;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03) !important;
+}
+
+.gi-square    { aspect-ratio: 1 / 1; }
+.gi-portrait  { aspect-ratio: 3 / 4; }
+.gi-landscape { aspect-ratio: 4 / 3; }
+
+.gi-tall {
+  grid-row: span 2;
+}
+
+.gi-dark {
+  border-color: #2a1f0a;
+  box-shadow:
+    inset 0 0 0 2px #4a3510,
+    inset 0 0 0 4px #1a1208,
+    0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gi-silver {
+  border-color: #9a9a9a;
+  box-shadow:
+    inset 0 0 0 2px #d0d0d0,
+    inset 0 0 0 4px #707070,
+    0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gi-photo {
+  padding: 0;
+  overflow: hidden;
+  background: #1a1208;
+}
+
+.gi-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gi-tilt-left         { transform: rotate(-2deg); }
+.gi-tilt-right        { transform: rotate(2deg); }
+.gi-tilt-slight-left  { transform: rotate(-1deg); }
+.gi-tilt-slight-right { transform: rotate(1.5deg); }
+
+
+/* ================================
+   OUTLOUD
+================================ */
+.outloud-section {
+  width: min(1200px, 90%);
+  margin: var(--space-xl) auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.outloud-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.outloud-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.outloud-title-frame,
+.outloud-photo-frame,
+.outloud-list-frame,
+.outloud-booking-frame {
+  position: relative;
+}
+
+.outloud-title-frame img,
+.outloud-photo-frame img:first-child,
+.outloud-list-frame img,
+.outloud-booking-frame img {
+  width: 100%;
+  display: block;
+}
+
+/* Title frame content */
+.outloud-title-content {
+  position: absolute;
+  inset: 22% 12% 15% 16%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #2b241d;
+}
+
+.outloud-title-content h2 {
+  font-size: 2rem; /* bumped up */
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.outloud-title-content p {
+  font-size: 1.1rem; /* bumped up */
+  line-height: 1.4;
+}
+
+/* Photo frame content */
+.outloud-photo-content {
+  position: absolute;
+  inset: 18% 22%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.outloud-photo {
+  width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* List frame content */
+.outloud-list-content {
+  position: absolute;
+  inset: 12% 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #2b241d;
+  overflow: auto;
+}
+
+.outloud-list-content ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem; /* bumped up */
+  line-height: 1.8;
+}
+
+/* Booking frame content */
+.outloud-booking-content {
+  position: absolute;
+  inset: 18% 16% 10% 16%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  color: #2b241d;
+  font-size: 1rem; /* bumped up */
+  line-height: 1.6;
+  overflow: auto;
+}
+
+
+/* ================================
+   COLLAB + SOCIAL MEDIA
+================================ */
+.social-collab-section {
+  padding: 80px 5%;
+  position: relative;
+}
+
+.social-collab-section::before {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 auto 80px;
+}
+
+.social-collab-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.collab-column,
+.social-column {
+  flex: 1;
+  text-align: center;
+}
+
+.collab-column h2,
+.social-column h2 {
+  color: white;
+  font-size: 3.2rem; /* bumped up */
+  margin-bottom: 40px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.vertical-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  min-height: 500px;
+}
+
+.divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  min-height: 500px;
+}
+
+.gold-frame {
+  width: 500px;
+  height: 320px;
+  margin: 0 auto;
+  background-image: url("images/Collab+Social.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.frame-inner {
+  position: absolute;
+  inset: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+}
+
+.frame-content {
+  position: absolute;
+  inset: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-align: center;
+}
+
+.frame-content p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.email {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.social-links {
+  flex-direction: row;
+  gap: 30px;
+}
+
+.social-links img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.social-links a:last-child img {
+  border-radius: 18px;
+  background: black;
+}
+
+.social-icons {
+  flex-direction: row;
+  gap: 50px;
+}
+
+.social-icons img {
+  width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.08);
+}
+
+
+/* ================================
+   RESPONSIVE — Large (1200px)
+================================ */
+@media (max-width: 1200px) {
+
+  .artist-title-frame {
+    width: 580px;
+  }
+
+  .gold-frame {
+    width: 420px;
+    height: 270px;
+  }
+
+  .outloud-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* ================================
+   RESPONSIVE — Tablet (768px)
+================================ */
+@media (max-width: 768px) {
+
+  /* Nav */
+  .navbar ul {
+    gap: 24px;
+  }
+
+  /* Hero */
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero-roles {
+    font-size: 1.3rem;
+  }
+
+  /* About */
+  .about {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 90%;
+  }
+
+  .about-image {
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .about-image .frame {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .about-image .frame img {
+    max-width: 100%;
+  }
+
+  .about-content {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  /* Artist At Work */
+  .artist-at-work {
+    margin-top: 60px;
+  }
+
+  .artist-title-frame {
+    width: 90%;
+  }
+
+  .artist-frame {
+    width: 100%;
+  }
+
+  .artist-frame:nth-child(odd),
+  .artist-frame:nth-child(even) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Musical Landscape */
+  .gallery-wall {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .gi-tall {
+    grid-row: span 1;
+  }
+
+  /* Outloud */
+  .outloud-section {
+    grid-template-columns: 1fr;
+  }
+
+  .outloud-right {
+    gap: 20px;
+  }
+
+  .outloud-booking-content {
+    font-size: 0.85rem;
+    inset: 15% 12%;
+    gap: 10px;
+  }
+
+  .outloud-list-content ul {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Collab + Social */
+  .social-collab-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vertical-divider {
+    width: 80%;
+    height: 1px;
+    min-height: unset;
+  }
+
+  .gold-frame {
+    width: 90vw;
+    max-width: 500px;
+    height: 280px;
+  }
+
+  .collab-column h2,
+  .social-column h2 {
+    font-size: 2.4rem;
+  }
+}
+
+
+/* ================================
+   RESPONSIVE — Mobile (480px)
+================================ */
+@media (max-width: 480px) {
+
+  /* Nav */
+  .navbar ul {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  .navbar a {
+    font-size: 10px;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .hero-roles {
+    font-size: 1rem;
+  }
+
+  /* About */
+  .about {
+    width: 95%;
+    gap: 20px;
+  }
+
+  .about-image .frame {
+    width: 75%;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  /* Artist At Work */
+  .artist-at-work {
+    margin-top: 40px;
+    gap: 24px;
+  }
+
+  .artist-title-frame h2 {
+    font-size: 1.4rem;
+  }
+
+  .artist-frame-content h3 {
+    font-size: 18px;
+  }
+
+  .artist-frame-content p {
+    font-size: 13px;
+  }
+
+  /* Musical Landscape */
+  .gallery-wall {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .gallery-item {
+    font-size: 0.9rem;
+    border-width: 4px;
+    padding: 10px 8px;
+  }
+
+  .ml-header h2 {
+    font-size: 2rem;
+  }
+
+  .gi-tilt-left         { transform: rotate(-1deg); }
+  .gi-tilt-right        { transform: rotate(1deg); }
+  .gi-tilt-slight-left  { transform: rotate(-0.5deg); }
+  .gi-tilt-slight-right { transform: rotate(0.5deg); }
+
+  /* Outloud */
+  .outloud-title-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .outloud-title-content p {
+    font-size: 0.9rem;
+  }
+
+  .outloud-booking-content {
+    font-size: 0.75rem;
+    inset: 12% 10%;
+    gap: 8px;
+  }
+
+  .outloud-list-content {
+    inset: 10% 14%;
+  }
+
+  .outloud-list-content ul {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* Collab + Social */
+  .collab-column h2,
+  .social-column h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .frame-inner p {
+    font-size: 1rem;
+  }
+
+  .email {
+    font-size: 1.1rem;
+  }
+
+  .social-links img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .gold-frame {
+    height: 240px;
+  }
 }
