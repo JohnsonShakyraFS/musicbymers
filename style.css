@@ -193,6 +193,7 @@ body::after {
 .about-content {
   width: 550px;
   margin-right: 0;
+  text-align: center;
 }
 
 .about-content h2 {
@@ -569,23 +570,24 @@ body::after {
 
 .outloud-title-content {
   position: absolute;
-  inset: 22% 12% 15% 16%;
+  inset: 15% 10% 15% 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #111;
+  margin-top: 50px;
 }
 
 .outloud-title-content h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .outloud-title-content p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.4;
 }
 
@@ -1136,7 +1138,6 @@ footer.navbar {
     font-size: 0.95rem;
   }
 
-  /* ---- Updated Mobile Gallery Wall Fix ---- */
   .gallery-wall {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -1145,42 +1146,31 @@ footer.navbar {
   .gw-photo {
     position: relative;
     width: 100%;
-    /* REMOVED hard aspect-ratio so the container height matches the true image height */
-    height: auto; 
+    aspect-ratio: 1 / 1; 
     overflow: hidden;
   }
 
   .gw-frame-img {
     width: 100%;
-    height: auto;
-    display: block;
-    position: relative; /* Replaces absolute positioning */
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    inset: 0;
     z-index: 1;
   }
 
   .gw-photo-inner {
     position: absolute;
-    /* Balanced precisely relative to the true frame image boundaries */
-    top: 25%;
-    bottom: 20%;
-    left: 24%;
-    right: 22%;
+    inset: 23%; 
     z-index: 2;
   }
 
-  /* Specific shape tweaks for the guitar and folk slots on mobile */
   .gw-guitar .gw-photo-inner {
-    top: 25%;
-    bottom: 20%;
-    left: 24%;
-    right: 22%;
+    inset: 17% 14% 16% 14%;
   }
 
   .gw-folk .gw-photo-inner {
-    top: 24%;
-    bottom: 24%;
-    left: 20%;
-    right: 20%;
+    inset: 24% 20%;
     border-radius: 50% / 43%;
   }
 
