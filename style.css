@@ -148,14 +148,15 @@ body::after {
 
 
 /* ================================
-   ABOUT
+   ABOUT (Desktop - Steady Sizing Locked)
 ================================ */
 .about {
-  width: 85%;
-  max-width: 1200px;
+  width: min(1100px, 90%);
+  max-width: 1100px;
   margin: var(--space-xl) auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 340px 550px; 
+  justify-content: center;
   gap: 60px;
   align-items: start;
 }
@@ -171,6 +172,7 @@ body::after {
 }
 
 .about-image {
+  width: 340px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -178,23 +180,24 @@ body::after {
 }
 
 .about-image .frame {
-  width: 80%;
+  width: 100%;
 }
 
 .about-image .frame img {
-  width: 100%;
+  width: 340px;
   height: auto;
-  object-fit: cover;
+  display: block;
+  object-fit: contain;
 }
 
 .about-content {
-  max-width: 500px;
-  margin-right: 40px;
+  width: 550px;
+  margin-right: 0;
 }
 
 .about-content h2 {
   font-size: 2.6rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .about-content p {
@@ -416,32 +419,75 @@ body::after {
 /* ---- Photo wrapper (frame pattern) ---- */
 .gw-photo {
   position: relative;
+  overflow: hidden;
+  display: block;
+  width: 100%;
 }
 
 .gw-frame-img {
   width: 100%;
   display: block;
+  position: relative;
+  z-index: 1; 
+  pointer-events: none;
 }
 
 .gw-photo-inner {
   position: absolute;
-  inset: 14%;
+  top: 25%;
+  bottom: 20%;
+  left: 24%;
+  right: 22%;
   overflow: hidden;
+  z-index: 2; 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.gw-photo-content {
-  width: 110%;
-  height: 110%;
-  object-fit: cover;
-  transform: scale(0.92);
+/* Specific layout overrides for the desktop guitar slot */
+.gallery-wall .gw-photo.gw-guitar {
+  grid-column: 2; 
+  grid-row: 2 / 4; 
+  transform: rotate(1deg); 
+  align-self: start; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: fit-content; 
 }
 
-.gw-guitar .gw-photo-inner,
-.gw-pic-bottom .gw-photo-inner {
-  inset: 16%;
+.gw-guitar .gw-frame-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gw-guitar .gw-photo-inner {
+  position: absolute;
+  top: 25%;
+  bottom: 20%;
+  left: 24%;
+  right: 22%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.gw-photo-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Geometric corrections for specific custom shapes */
+.gw-folk .gw-photo-inner {
+  top: 24%;
+  bottom: 24%;
+  left: 20%;
+  right: 20%;
+  border-radius: 50% / 43%; 
 }
 
 /* ---- Pin wrapper (natural size, centered) ---- */
@@ -467,7 +513,6 @@ body::after {
 
 /* Row 2 */
 .gw-cmt         { grid-column: 1; grid-row: 2; transform: rotate(-1.5deg); align-self: center; }
-.gw-guitar      { grid-column: 2; grid-row: 2 / 4; transform: rotate(1deg); align-self: start; }
 .gw-alt         { grid-column: 3; grid-row: 2; transform: rotate(-2deg); align-self: center; }
 .gw-pic-mid     { grid-column: 4; grid-row: 2; transform: rotate(1.5deg); }
 
@@ -583,17 +628,18 @@ body::after {
 
 .outloud-booking-content {
   position: absolute;
-  inset: 18% 16% 10% 16%;
+  inset: 20% 20% 15% 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 16px;
+  gap: 12px;
+  padding: 0 10px;
   color: #2b241d;
-  font-size: 1rem;
-  line-height: 1.6;
-  overflow: auto;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-y: auto;
 }
 
 
@@ -650,7 +696,7 @@ body::after {
 }
 
 .gold-frame {
-  width: 500px;
+  width: min(500px, 90vw);
   height: 320px;
   margin: 0 auto;
   background-image: url("images/Collab+Social.png");
@@ -738,18 +784,92 @@ footer.navbar {
    RESPONSIVE — Large (1200px)
 ================================ */
 @media (max-width: 1200px) {
-
   .artist-title-frame {
     width: 580px;
   }
 
-  .gold-frame {
-    width: 420px;
-    height: 270px;
-  }
-
   .outloud-section {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .outloud-booking-content {
+    inset: 22% 20% 16% 20%;
+    font-size: 0.85rem;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .outloud-booking-content p {
+    margin: 0;
+  }
+
+  .social-collab-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .vertical-divider {
+    width: 80%;
+    height: 1px;
+    min-height: unset;
+  }
+
+  .gold-frame {
+    width: min(450px, 90vw);
+    height: 290px;
+  }
+
+  .collab-column h2,
+  .social-column h2 {
+    font-size: 2.6rem;
+    margin-bottom: 25px;
+  }
+}
+
+
+/* ================================
+   RESPONSIVE — Mid-Tablet (990px)
+================================ */
+@media (max-width: 990px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    width: 90%;
+    margin: var(--space-lg) auto;
+  }
+
+  .about-image {
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image .frame {
+    width: 85%;
+    max-width: 340px;
+  }
+
+  .about-image .frame img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .about-content {
+    max-width: 600px;
+    width: 100%;
+    margin-right: 0;
+    padding: 0 15px;
+  }
+
+  .about-content h2 {
+    text-align: center;
+    font-size: 2.4rem;
   }
 }
 
@@ -758,14 +878,13 @@ footer.navbar {
    RESPONSIVE — Outloud (900px)
 ================================ */
 @media (max-width: 900px) {
-
   .outloud-section {
     grid-template-columns: 1fr;
   }
 
   .outloud-booking-content {
+    inset: 20% 18% 15% 18%;
     font-size: 0.85rem;
-    inset: 15% 12%;
     gap: 10px;
   }
 
@@ -784,8 +903,6 @@ footer.navbar {
    RESPONSIVE — Tablet (768px)
 ================================ */
 @media (max-width: 768px) {
-
-  /* Nav */
   .navbar ul {
     gap: 24px;
   }
@@ -795,7 +912,6 @@ footer.navbar {
     padding-right: 16px;
   }
 
-  /* Hero */
   .hero-top {
     flex-direction: column;
     align-items: center;
@@ -807,39 +923,6 @@ footer.navbar {
     align-items: center;
   }
 
-  /* About */
-  .about {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    width: 90%;
-    text-align: center;
-  }
-
-  .about-image {
-    margin-top: 0;
-    justify-content: center;
-  }
-
-  .about-image .frame {
-    width: 60%;
-    margin: 0 auto;
-  }
-
-  .about-image .frame img {
-    max-width: 100%;
-  }
-
-  .about-content {
-    max-width: 100%;
-    margin-right: 0;
-    margin: 0 auto;
-  }
-
-  .about-content h2 {
-    text-align: center;
-  }
-
-  /* Artist At Work */
   .artist-at-work {
     margin-top: 60px;
     gap: 16px;
@@ -854,7 +937,6 @@ footer.navbar {
     font-size: 1.4rem;
   }
 
-  /* Hide desktop frames, show carousel */
   .artist-frames-desktop {
     display: none;
   }
@@ -894,26 +976,24 @@ footer.navbar {
     height: 100%;
     object-fit: fill;
     display: block;
-    transform: none;
-    transform-origin: unset;
   }
 
   .artist-frame-mobile .artist-frame-content {
     position: absolute;
-    inset: 20% 12% 8%;
-    transform: none;
-    padding: 10% 8%;
+    inset: 25% 12% 8%;
+    padding: 6% 6%;
     overflow: auto;
     justify-content: flex-start;
   }
 
   .artist-frame-mobile .artist-frame-content h3 {
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: 4px;
   }
 
   .artist-frame-mobile .artist-frame-content p {
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 10px;
+    line-height: 1.35;
   }
 
   .carousel-arrow {
@@ -937,8 +1017,6 @@ footer.navbar {
   .carousel-arrow:hover {
     background: rgba(0, 0, 0, 0.7);
   }
-
-  /* Musical Landscape */
 
   .ml-header {
     flex-direction: column;
@@ -971,7 +1049,6 @@ footer.navbar {
     align-self: center;
   }
 
-  /* Alternate pins and photos side by side — varied sizing */
   .gw-mers-pic   { grid-column: 1; grid-row: 1; }
   .gw-hyperpop   { grid-column: 2; grid-row: 1; align-self: center; }
   .gw-tree-pic   { grid-column: 2; grid-row: 2; }
@@ -986,7 +1063,6 @@ footer.navbar {
   .gw-indie      { grid-column: 1; grid-row: 6; align-self: center; }
   .gw-jazz       { grid-column: 1 / 3; grid-row: 7; justify-self: center; width: 80%; }
 
-  /* Collab + Social */
   .social-collab-container {
     flex-direction: column;
     align-items: center;
@@ -1015,8 +1091,6 @@ footer.navbar {
    RESPONSIVE — Mobile (480px)
 ================================ */
 @media (max-width: 480px) {
-
-  /* Nav */
   .navbar ul {
     gap: 14px;
     flex-wrap: wrap;
@@ -1033,7 +1107,6 @@ footer.navbar {
     font-size: 10px;
   }
 
-  /* Hero */
   .hero {
     padding-top: 30px;
   }
@@ -1046,7 +1119,6 @@ footer.navbar {
     font-size: 1rem;
   }
 
-  /* About */
   .about {
     width: 95%;
     gap: 20px;
@@ -1064,36 +1136,52 @@ footer.navbar {
     font-size: 0.95rem;
   }
 
-  /* Musical Landscape */
   .gallery-wall {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
-  .gallery-item {
-    font-size: 0.9rem;
-    border-width: 4px;
-    padding: 10px 8px;
+  .gw-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
   }
 
-  .gallery-item img {
+  .gw-frame-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .gw-photo-inner {
+    position: absolute;
+    inset: 23%; 
+    z-index: 2;
+  }
+
+  .gw-guitar .gw-photo-inner {
+    inset: 17% 14% 16% 14%;
+  }
+
+  .gw-folk .gw-photo-inner {
+    inset: 24% 20%;
+    border-radius: 50% / 43%;
+  }
+
+  .gw-photo-content {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    inset: 0;
   }
 
   .ml-header h2 {
     font-size: 2rem;
   }
 
-  .gi-tilt-left         { transform: rotate(-1deg); }
-  .gi-tilt-right        { transform: rotate(1deg); }
-  .gi-tilt-slight-left  { transform: rotate(-0.5deg); }
-  .gi-tilt-slight-right { transform: rotate(0.5deg); }
-
-  /* Outloud */
   .outloud-title-content h2 {
     font-size: 1.5rem;
   }
@@ -1103,9 +1191,11 @@ footer.navbar {
   }
 
   .outloud-booking-content {
-    font-size: 0.75rem;
-    inset: 12% 10%;
-    gap: 8px;
+    font-size: 0.68rem;
+    line-height: 1.25;
+    inset: 14% 12% 10% 12%;
+    gap: 4px;
+    padding: 0 4px;
   }
 
   .outloud-list-content {
@@ -1117,7 +1207,6 @@ footer.navbar {
     line-height: 1.4;
   }
 
-  /* Collab + Social */
   .collab-column h2,
   .social-column h2 {
     font-size: 1.8rem;
