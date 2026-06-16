@@ -1136,6 +1136,7 @@ footer.navbar {
     font-size: 0.95rem;
   }
 
+  /* ---- Updated Mobile Gallery Wall Fix ---- */
   .gallery-wall {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -1144,31 +1145,42 @@ footer.navbar {
   .gw-photo {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1; 
+    /* REMOVED hard aspect-ratio so the container height matches the true image height */
+    height: auto; 
     overflow: hidden;
   }
 
   .gw-frame-img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: absolute;
-    inset: 0;
+    height: auto;
+    display: block;
+    position: relative; /* Replaces absolute positioning */
     z-index: 1;
   }
 
   .gw-photo-inner {
     position: absolute;
-    inset: 23%; 
+    /* Balanced precisely relative to the true frame image boundaries */
+    top: 25%;
+    bottom: 20%;
+    left: 24%;
+    right: 22%;
     z-index: 2;
   }
 
+  /* Specific shape tweaks for the guitar and folk slots on mobile */
   .gw-guitar .gw-photo-inner {
-    inset: 17% 14% 16% 14%;
+    top: 25%;
+    bottom: 20%;
+    left: 24%;
+    right: 22%;
   }
 
   .gw-folk .gw-photo-inner {
-    inset: 24% 20%;
+    top: 24%;
+    bottom: 24%;
+    left: 20%;
+    right: 20%;
     border-radius: 50% / 43%;
   }
 
