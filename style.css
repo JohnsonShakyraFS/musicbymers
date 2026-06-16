@@ -1138,38 +1138,35 @@ footer.navbar {
     font-size: 0.95rem;
   }
 
-  .gallery-wall {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
+/* ---- Cleaned Up Mobile Gallery Wall ---- */
+.gallery-wall {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
 
-  .gw-photo {
-    position: relative;
-    width: 100%;
-    height: auto;        /* Removes the aspect-ratio: 1/1 square constraint */
-    overflow: visible;    /* Ensures no decorative edges get chopped off */
-  }
+.gw-photo {
+  position: relative;
+  width: 100%;
+  height: auto;        /* Removes the 1/1 square restriction */
+  overflow: visible;    /* Keeps decorative frame edges safe */
+}
 
-  .gw-frame-img {
-    width: 100%;
-    height: auto;       /* Lets the image scale with its natural proportions */
-    display: block;
-    position: relative; /* Overrides the absolute positioning from desktop */
-    inset: 0;           /* Resets the coordinates */
-    z-index: 1;
-  }
+/* Target BOTH classes since they are mixed in the HTML right now */
+.gw-frame-img,
+.gw-photo-content {
+  display: block !important; /* Forces them to be visible again */
+  width: 100%;
+  height: auto;              /* Lets the frames scale naturally */
+  position: relative;        /* Overrides desktop absolute positioning */
+  inset: 0;                  /* Resets coordinate positions */
+  z-index: 1;
+}
 
-  /* Deactivates the old overlay boxes since your images are now pre-flattened */
-  .gw-photo-inner,
-  .gw-photo-content {
-    display: none;
-  }
-
-  .gw-photo-inner {
-    position: absolute;
-    inset: 23%; 
-    z-index: 2;
-  }
+/* Safely deactivate the inner overlay container from desktop */
+.gw-photo-inner {
+  display: none;
+}
 
   .gw-guitar .gw-photo-inner {
     inset: 17% 14% 16% 14%;
