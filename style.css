@@ -1146,17 +1146,23 @@ footer.navbar {
   .gw-photo {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1; 
-    overflow: hidden;
+    height: auto;        /* Removes the aspect-ratio: 1/1 square constraint */
+    overflow: visible;    /* Ensures no decorative edges get chopped off */
   }
 
   .gw-frame-img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: absolute;
-    inset: 0;
+    height: auto;       /* Lets the image scale with its natural proportions */
+    display: block;
+    position: relative; /* Overrides the absolute positioning from desktop */
+    inset: 0;           /* Resets the coordinates */
     z-index: 1;
+  }
+
+  /* Deactivates the old overlay boxes since your images are now pre-flattened */
+  .gw-photo-inner,
+  .gw-photo-content {
+    display: none;
   }
 
   .gw-photo-inner {
