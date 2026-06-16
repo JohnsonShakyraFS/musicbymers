@@ -15,11 +15,12 @@
   <header class="navbar">
     <nav>
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Outloud</a></li>
-        <li><a href="#">Collab</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#musical">Work</a></li>
+        <li><a href="#musical">Landscape</a></li>
+        <li><a href="#outloud">Outloud</a></li>
+        <li><a href="#collab">Collab</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -59,7 +60,7 @@
   <!-- ================================
        ABOUT
   ================================ -->
-  <section class="about">
+  <section class="about" id="about">
 
     <div class="about-image">
       <div class="frame">
@@ -82,7 +83,7 @@
   <!-- ================================
        ARTIST AT WORK
   ================================ -->
-  <section class="artist-at-work">
+  <section class="artist-at-work" id="work">
 
     <!-- Section Title Frame -->
     <div class="artist-title-frame">
@@ -90,161 +91,244 @@
       <h2>The Artist at Work:</h2>
     </div>
 
-    <!-- The Lyricist -->
-    <div class="artist-frame left">
-      <img src="images/AAWInfoFrame.png" alt="">
-      <div class="artist-frame-content">
-        <h3>The Lyricist</h3>
-        <p>Mers specializes in emotionally driven songwriting, blending vivid imagery, nuanced wordplay, and strong melodic phrasing to create memorable lyrics. Her work often incorporates layered meanings, literary influences, and cultural references, resulting in songs that reward repeated listening.
-          Whether developing an original concept or building upon an existing demo, she excels at translating artistic vision into compelling lyrical narratives that enhance both the story and emotional core of a piece.</p>
+    <!-- Desktop: three frames side by side; Mobile: carousel -->
+    <div class="artist-frames-desktop">
+
+      <!-- The Lyricist -->
+      <div class="artist-frame right">
+        <img src="images/AAWInfoFrame.png" alt="">
+        <div class="artist-frame-content">
+          <h3>The Lyricist</h3>
+          <p>Mers specializes in emotionally driven songwriting, blending vivid imagery, nuanced wordplay, and strong melodic phrasing to create memorable lyrics. Her work often incorporates layered meanings, literary influences, and cultural references, resulting in songs that reward repeated listening.
+            Whether developing an original concept or building upon an existing demo, she excels at translating artistic vision into compelling lyrical narratives that enhance both the story and emotional core of a piece.</p>
+        </div>
       </div>
+
+      <!-- The Composer -->
+      <div class="artist-frame left">
+        <img src="images/AAWInfoFrame.png" alt="">
+        <div class="artist-frame-content">
+          <h3>The Composer</h3>
+          <p>Mers is a composer and songwriter who writes primarily for piano and guitar, specializing in original indie and acoustic music. Her compositions are designed to showcase trained vocalists, featuring expressive melodies, dynamic vocal runs, and complex rhythms.
+            Influenced by artists like Elliott Smith, her work blends technical sophistication with emotional authenticity, creating music that is both artistically compelling and deeply engaging. Whether crafting intimate acoustic arrangements or fully developed works, she excels at using music to support storytelling and elevate vocal performance.</p>
+        </div>
+      </div>
+
+      <!-- The Producer -->
+      <div class="artist-frame right">
+        <img src="images/AAWInfoFrame.png" alt="">
+        <div class="artist-frame-content">
+          <h3>The Producer</h3>
+          <p>Mers brings a strong creative vision to the production of her original work, guiding projects from initial concept through development.
+            She has a particular passion for transforming acoustic compositions into more fully produced arrangements, using production techniques to deepen emotional resonance and broaden artistic scope. Her voice in production emphasizes storytelling, thematic cohesion, and character-driven narratives, with a focus on creating compelling through lines that support larger projects such as EPs and concept albums.</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- The Composer -->
-    <div class="artist-frame right">
-      <img src="images/AAWInfoFrame.png" alt="">
-      <div class="artist-frame-content">
-        <h3>The Composer</h3>
-        <p>Mers is a composer and songwriter who writes primarily for piano and guitar, specializing in original indie and acoustic music. Her compositions are designed to showcase trained vocalists, featuring expressive melodies, dynamic vocal runs, and complex rhythms.
-          Influenced by artists like Elliott Smith, her work blends technical sophistication with emotional authenticity, creating music that is both artistically compelling and deeply engaging. Whether crafting intimate acoustic arrangements or fully developed works, she excels at using music to support storytelling and elevate vocal performance.</p>
+    <!-- Mobile carousel -->
+    <div class="artist-carousel-wrapper">
+      <button class="carousel-arrow left-arrow" onclick="slideCarousel(-1)">&#8249;</button>
+
+      <div class="artist-frames-carousel">
+
+        <div class="artist-frame-mobile">
+          <img src="images/AAWInfoFrame.png" alt="">
+          <div class="artist-frame-content">
+            <h3>The Lyricist</h3>
+            <p>Mers specializes in emotionally driven songwriting, blending vivid imagery, nuanced wordplay, and strong melodic phrasing to create memorable lyrics. Her work often incorporates layered meanings, literary influences, and cultural references, resulting in songs that reward repeated listening.
+              Whether developing an original concept or building upon an existing demo, she excels at translating artistic vision into compelling lyrical narratives that enhance both the story and emotional core of a piece.</p>
+          </div>
+        </div>
+
+        <div class="artist-frame-mobile">
+          <img src="images/AAWInfoFrame.png" alt="">
+          <div class="artist-frame-content">
+            <h3>The Composer</h3>
+            <p>Mers is a composer and songwriter who writes primarily for piano and guitar, specializing in original indie and acoustic music. Her compositions are designed to showcase trained vocalists, featuring expressive melodies, dynamic vocal runs, and complex rhythms.
+              Influenced by artists like Elliott Smith, her work blends technical sophistication with emotional authenticity, creating music that is both artistically compelling and deeply engaging. Whether crafting intimate acoustic arrangements or fully developed works, she excels at using music to support storytelling and elevate vocal performance.</p>
+          </div>
+        </div>
+
+        <div class="artist-frame-mobile">
+          <img src="images/AAWInfoFrame.png" alt="">
+          <div class="artist-frame-content">
+            <h3>The Producer</h3>
+            <p>Mers brings a strong creative vision to the production of her original work, guiding projects from initial concept through development.
+              She has a particular passion for transforming acoustic compositions into more fully produced arrangements, using production techniques to deepen emotional resonance and broaden artistic scope. Her voice in production emphasizes storytelling, thematic cohesion, and character-driven narratives, with a focus on creating compelling through lines that support larger projects such as EPs and concept albums.</p>
+          </div>
+        </div>
+
       </div>
+
+      <button class="carousel-arrow right-arrow" onclick="slideCarousel(1)">&#8250;</button>
     </div>
 
-    <!-- The Producer -->
-    <div class="artist-frame left">
-      <img src="images/AAWInfoFrame.png" alt="">
-      <div class="artist-frame-content">
-        <h3>The Producer</h3>
-        <p>Mers brings a strong creative vision to the production of her original work, guiding projects from initial concept through development.
-          She has a particular passion for transforming acoustic compositions into more fully produced arrangements, using production techniques to deepen emotional resonance and broaden artistic scope. Her voice in production emphasizes storytelling, thematic cohesion, and character-driven narratives, with a focus on creating compelling through lines that support larger projects such as EPs and concept albums.</p>
+  </section>
+
+
+<!-- ================================
+       MUSICAL LANDSCAPE
+  ================================ -->
+  <section class="musical-landscape" id="musical">
+ 
+    <div class="ml-header">
+      <div class="ml-shelf ml-shelf-left">
+        <img src="images/shelf.png" alt="">
+      </div>
+      <div class="ml-title">
+        <h2>Musical Landscape:</h2>
+        <p>Mers has experience with:</p>
+      </div>
+      <div class="ml-shelf ml-shelf-right">
+        <img src="images/shelf.png" alt="">
       </div>
     </div>
+ 
+    <div class="gallery-wall">
+ 
+      <!-- Col 1, Row 1: Mers portrait photo -->
+      <div class="gw-photo gw-mers-pic">
+        <img src="images/MusicalLandscapeFrame.png" alt="" class="gw-frame-img">
+        <div class="gw-photo-inner">
+          <img src="images/Mers.jpg" alt="Mers" class="gw-photo-content">
+        </div>
+      </div>
+ 
+      <!-- Col 2, Row 1: Hyper-Pop pin -->
+      <div class="gw-pin gw-hyperpop">
+        <img src="images/Hyper-Pop Pin.png" alt="Hyper-Pop">
+      </div>
+ 
+      <!-- Col 3, Row 1: Aesthetic portrait photo -->
+      <div class="gw-photo gw-tree-pic">
+        <img src="images/MusicalLandscapeFrame.png" alt="" class="gw-frame-img">
+        <div class="gw-photo-inner">
+          <img src="images/Aesthetic.jpeg" alt="Aesthetic" class="gw-photo-content">
+        </div>
+      </div>
+ 
+      <!-- Col 4, Row 1: Incidental Composition pin -->
+      <div class="gw-pin gw-incidental">
+        <img src="images/Incidental Composition Pin.png" alt="Incidental Composition">
+      </div>
+ 
+      <!-- Col 1, Row 2: Contemporary Musical Theatre pin -->
+      <div class="gw-pin gw-cmt">
+        <img src="images/Contemporary Musical Theatre Pin.png" alt="Contemporary Musical Theatre">
+      </div>
+ 
+      <!-- Col 2, Rows 2-3: Guitar portrait photo (tall) -->
+      <div class="gw-photo gw-guitar">
+        <img src="images/MusicalLandscapeFrame.png" alt="" class="gw-frame-img">
+        <div class="gw-photo-inner">
+          <img src="images/guitar.jpg" alt="Guitar" class="gw-photo-content">
+        </div>
+      </div>
+ 
+      <!-- Col 3, Row 2: Alternative pin -->
+      <div class="gw-pin gw-alt">
+        <img src="images/Alternative Pin.png" alt="Alternative">
+      </div>
+ 
+      <!-- Col 4, Row 2: Portrait photo -->
+      <div class="gw-photo gw-pic-mid">
+        <img src="images/MusicalLandscapeFrame.png" alt="" class="gw-frame-img">
+        <div class="gw-photo-inner">
+          <img src="images/mers-photo-2.jpg" alt="Mers" class="gw-photo-content">
+        </div>
+      </div>
+ 
+      <!-- Col 1, Rows 3-4: Folk pin (tall) -->
+      <div class="gw-pin gw-folk">
+        <img src="images/Folk Pin.png" alt="Folk">
+      </div>
+ 
+      <!-- Col 2, Row 4: Indie pin (circle) -->
+      <div class="gw-pin gw-indie">
+        <img src="images/Indie Pin.png" alt="Indie">
+      </div>
+ 
+      <!-- Col 3, Rows 3-4: Portrait photo (bottom center) -->
+      <div class="gw-photo gw-pic-bottom">
+        <img src="images/MusicalLandscapeFrame.png" alt="" class="gw-frame-img">
+        <div class="gw-photo-inner">
+          <img src="images/mers-photo-2.jpg" alt="Mers" class="gw-photo-content">
+        </div>
+      </div>
+ 
+      <!-- Col 4, Row 3: Electronic pin -->
+      <div class="gw-pin gw-electronic">
+        <img src="images/Electronic Pin.png" alt="Electronic">
+      </div>
+ 
+      <!-- Bottom: Jazz Alternative Fusion banner pin -->
+      <div class="gw-pin gw-jazz">
+        <img src="images/Jazz Alternative Fusion.png" alt="Jazz Alternative Fusion">
+      </div>
+ 
+    </div>
+ 
   </section>
 
 
   <!-- ================================
-     MUSICAL LANDSCAPE
-================================ -->
-<section class="musical-landscape">
+       OUTLOUD
+  ================================ -->
+  <section class="outloud-section" id="outloud">
 
-  <div class="ml-header">
-    <h2>Musical Landscape:</h2>
-    <p>Mers has experience with:</p>
-  </div>
+    <!-- Left Column -->
+    <div class="outloud-left">
 
-  <div class="gallery-wall">
-
-    <!-- Row 1 -->
-    <div class="gallery-item gi-portrait gi-tilt-left gi-photo" style="--row:1; --col:1;">
-      <img src="images/Mers.jpg" alt="Mers">
-    </div>
-
-    <div class="gallery-item gi-square gi-tilt-right gi-dark" style="--row:1; --col:2;">
-      <img src="images/Alternative Pin.png" alt="Alternative Pin">
-    </div>
-
-    <div class="gallery-item gi-landscape gi-tilt-slight-left" style="--row:1; --col:3;">
-      <img src="images/Contemporary Musical Theatre Pin.png" alt="Contemporary Musical Theatre Pin">
-    </div>
-
-    <div class="gallery-item gi-square gi-tilt-slight-right gi-silver" style="--row:1; --col:4;">
-      <img src="images/Electronic Pin.png" alt="Electronic Pin">
-    </div>
-
-    <!-- Row 2 -->
-    <div class="gallery-item gi-landscape gi-tilt-right gi-dark" style="--row:2; --col:1;">
-      <img src="images/Hyper-Pop Pin.png" alt="Hyper-Pop Pin">
-    </div>
-
-    <div class="gallery-item gi-portrait gi-tilt-slight-left gi-photo gi-tall" style="--row:2; --col:2;">
-      <img src="images/Aesthetic.jpeg" alt="Aesthetic photo">
-    </div>
-
-    <div class="gallery-item gi-square gi-tilt-slight-right" style="--row:2; --col:3;">
-      <img src="images/Incidental Composition Pin.png" alt="Incidental Composition Pin">
-    </div>
-
-    <div class="gallery-item gi-portrait gi-tilt-left gi-photo gi-silver gi-tall" style="--row:2; --col:4;">
-      <img src="images/mers-photo-2.jpg" alt="Mers">
-    </div>
-
-    <!-- Row 3 -->
-    <div class="gallery-item gi-square gi-tilt-right" style="--row:3; --col:1;">
-      <img src="images/Folk Pin.png" alt="Folk Pin">
-    </div>
-
-    <div class="gallery-item gi-square gi-tilt-slight-left gi-photo" style="--row:3; --col:2;">
-      <img src="images/guitar.jpg" alt="Guitar">
-    </div>
-
-    <div class="gallery-item gi-landscape gi-tilt-slight-right gi-dark" style="--row:3; --col:3;">
-      <img src="images/Jazz Alternative Fusion.png" alt="jazz Alternative Fusion Pin">
-    </div>
-
-    <div class="gallery-item gi-square gi-tilt-left gi-silver" style="--row:3; --col:4;">
-      <img src="images/Indie Pin.png" alt="Indie Pin">
-    </div>
-
-  </div>
-
-</section>
-
-  <!-- ================================
-     OUTLOUD
-================================ -->
-<section class="outloud-section">
-
-  <!-- Left Column -->
-  <div class="outloud-left">
-
-    <!-- Title Frame -->
-    <div class="outloud-title-frame">
-      <img src="images/OutloudTitle.png" alt="">
-      <div class="outloud-title-content">
-        <h2>Outloud:</h2>
-        <p>Mers' live appearance include:</p>
+      <!-- Title Frame -->
+      <div class="outloud-title-frame">
+        <img src="images/OutloudTitle.png" alt="">
+        <div class="outloud-title-content">
+          <h2>Outloud:</h2>
+          <p>Mers' live appearance include:</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Photo Frame -->
-    <div class="outloud-photo-frame">
-      <img src="images/OutloudImage.png" alt="">
-      <div class="outloud-photo-content">
-        <img src="images/OutloudPerson.png" alt="Mers live performance" class="outloud-photo">
+      <!-- Photo Frame -->
+      <div class="outloud-photo-frame">
+        <img src="images/OutloudImage.png" alt="">
+        <div class="outloud-photo-content">
+          <img src="images/OutloudPerson.png" alt="Mers live performance" class="outloud-photo">
+        </div>
       </div>
+
     </div>
 
-  </div>
+    <!-- Right Column -->
+    <div class="outloud-right">
 
-  <!-- Right Column -->
-  <div class="outloud-right">
-
-    <!-- Appearances List Frame -->
-    <div class="outloud-list-frame">
-      <img src="images/OutloudList.png" alt="">
-      <div class="outloud-list-content">
-        <ul>
-          <li>Music Mondaze at The Hotel Zags - Guest Artist (2026)</li>
-          <li>Jazz Combo Night Series at Lincoln Recital Hall - Singer, Songwriter, & Composer (2026)</li>
-          <li>Micah Schnabel & Vannessa Jean Speckman Tour at Le Voyeur - Opener (2025)</li>
-          <li>Black Box Production of As You Like It (Shakesphere) - Music Director, Composer (2023)</li>
-          <li>Orange County School of Performing Arts Master Artist Series - Presenter (2022)</li>
-        </ul>
+      <!-- Appearances List Frame -->
+      <div class="outloud-list-frame">
+        <img src="images/OutloudList.png" alt="">
+        <div class="outloud-list-content">
+          <ul>
+            <li>Music Mondaze at The Hotel Zags - Guest Artist (2026)</li>
+            <li>Jazz Combo Night Series at Lincoln Recital Hall - Singer, Songwriter, & Composer (2026)</li>
+            <li>Micah Schnabel & Vannessa Jean Speckman Tour at Le Voyeur - Opener (2025)</li>
+            <li>Black Box Production of As You Like It (Shakesphere) - Music Director, Composer (2023)</li>
+            <li>Orange County School of Performing Arts Master Artist Series - Presenter (2022)</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <!-- Booking Frame -->
-    <div class="outloud-booking-frame">
-      <img src="images/OutloudAvailable.png" alt="">
-      <div class="outloud-booking-content">
-        <p>Mers is available for select live performances, songwriting showcases, acoustic sets, and creative events. For booking inquiries, please reach out with event details, location, date, and any relevant performance needs.</p>
-        <p>Submit booking inquiries to:<br>musicbymers@gmail.com</p>
+      <!-- Booking Frame -->
+      <div class="outloud-booking-frame">
+        <img src="images/OutloudAvailable.png" alt="">
+        <div class="outloud-booking-content">
+          <p>Mers is available for select live performances, songwriting showcases, acoustic sets, and creative events. For booking inquiries, please reach out with event details, location, date, and any relevant performance needs.</p>
+          <p>Submit booking inquiries to:<br>musicbymers@gmail.com</p>
+        </div>
       </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
 
   <!-- ================================
        COLLAB + SOCIAL MEDIA
@@ -253,7 +337,7 @@
     <div class="social-collab-container">
 
       <!-- Collab Column -->
-      <div class="collab-column">
+      <div class="collab-column" id="collab">
         <h2>Collab With Me:</h2>
         <div class="gold-frame">
           <div class="frame-inner">
@@ -263,7 +347,7 @@
               collaboration inquiries to:
             </p>
             <p class="email">
-              musicbymers@gmail.com
+              <a href="mailto:musicbymers@gmail.com">musicbymers@gmail.com</a>
             </p>
           </div>
         </div>
@@ -272,15 +356,15 @@
       <div class="vertical-divider"></div>
 
       <!-- Social Column -->
-      <div class="social-column">
+      <div class="social-column" id="contact">
         <h2>Follow Along:</h2>
         <div class="gold-frame">
           <div class="frame-inner social-links">
-            <a href="#">
-              <img src="images/Instagram.jpg" alt="Instagram">
+            <a href="https://www.instagram.com/mers.percapita/">
+              <img src="images/insta.png" alt="Instagram">
             </a>
-            <a href="#">
-              <img src="images/TikTok.jpg" alt="TikTok">
+            <a href="https://www.tiktok.com/@merspercapita">
+              <img src="images/tiktok.png" alt="TikTok">
             </a>
           </div>
         </div>
@@ -296,14 +380,23 @@
   <footer class="navbar">
     <nav>
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Outloud</a></li>
-        <li><a href="#">Collab</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#musical">Work</a></li>
+        <li><a href="#musical">Landscape</a></li>
+        <li><a href="#outloud">Outloud</a></li>
+        <li><a href="#collab">Collab</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </footer>
+
+  <script>
+    function slideCarousel(direction) {
+      const carousel = document.querySelector('.artist-frames-carousel');
+      const cardWidth = carousel.offsetWidth;
+      carousel.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
