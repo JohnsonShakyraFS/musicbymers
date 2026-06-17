@@ -1203,7 +1203,7 @@ footer.navbar {
 
   .outloud-list-content ul {
     /* 3. Drop font size slightly so all items sit cleanly inside the asset borders */
-    font-size: 0.9rem !important;
+    font-size: 0.6rem !important;
     line-height: 1.5 !important;
   }
 
