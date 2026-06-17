@@ -645,14 +645,12 @@ body::after {
 .outloud-booking-content p {
   font-size: 1.25rem !important; /* Brought down from 1.5rem to prevent spillover */
   line-height: 1.5 !important;
-  font-weight: 700 !important; /* Bolds the regular text */
   margin: 0;
 }
 
 .outloud-booking-content p:first-of-type {
   font-size: 1.05rem !important; /* Brought down to keep it compact */
   line-height: 1.4 !important;
-  font-weight: 700 !important;
   margin: 0;
 }
 
@@ -671,6 +669,25 @@ body::after {
   color: #111;
   text-decoration: underline;
 }
+
+/* Explicitly removes any forced bolding from the paragraph elements */
+.outloud-booking-frame p {
+  font-weight: normal !important;
+}
+
+/* Keeps the email block matching your original .email bold/size rules */
+.outloud-booking-frame .email {
+  font-weight: bold !important;
+  margin-top: 15px;
+}
+
+.outloud-booking-frame .email a {
+  font-size: 1.6rem !important;
+  color: inherit;
+  text-decoration: underline;
+}
+
+
 
 /* ================================
    COLLAB + SOCIAL MEDIA
@@ -744,10 +761,6 @@ body::after {
   align-items: center;
   text-align: center;
   color: #111;
-}
-
-.frame-inner p {
-  font-weight: 700;
 }
 
 .frame-content {
