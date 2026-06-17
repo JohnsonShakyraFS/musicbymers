@@ -746,6 +746,10 @@ body::after {
   color: #111;
 }
 
+.frame-inner p {
+  font-weight: 700;
+}
+
 .frame-content {
   position: absolute;
   inset: 18%;
@@ -1275,7 +1279,6 @@ footer.navbar {
     font-size: 0.9rem;
   }
 
-  @media (max-width: 480px) {
     .outloud-booking-content {
       /* Pulls the layout back into the exact center of the mobile frame asset */
       position: absolute;
