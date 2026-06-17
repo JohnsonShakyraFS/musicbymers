@@ -997,11 +997,54 @@ footer.navbar {
   }
 }
 
+/* ==========================================================
+   DESKTOP PATCHES (769px and up)
+========================================================== */
+@media (min-width: 769px) {
+  /* 1. Remove the scrollbars from the text frames */
+  .producer-frame .frame-inner,
+  .composer-frame .frame-inner {
+    overflow-y: hidden !important;
+  }
+  
+  .producer-frame .frame-inner::-webkit-scrollbar,
+  .composer-frame .frame-inner::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+
+  /* 2. Shift Musical Landscape text upward out of the "droop" */
+  .musical-landscape-section .section-header-container {
+    transform: translateY(-40px); /* Adjust this pixel value to nudge it perfectly */
+    position: relative;
+    z-index: 10;
+  }
+}
 
 /* ================================
    RESPONSIVE — Tablet (768px)
 ================================ */
 @media (max-width: 768px) {
+  html, body {
+    background-color: #1a2315; /* Match your dark floral wallpaper tone to hide leaks */
+    margin: 0;
+    padding: 0;
+  }
+
+  .artist-at-work-section,
+  .musical-landscape-section,
+  .outloud-booking-section {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 2. Shrink the Outloud booking email link so it wraps natively inside bookingframe.png */
+  .outloud-booking-frame .email a {
+    font-size: 0.9rem !important; /* Brought down so it stays strictly within the inner frame canvas */
+    word-break: break-all;        /* Structural safety fallback for ultra-narrow viewports */
+  }
+
   .navbar ul {
     gap: 24px;
   }
@@ -1318,11 +1361,12 @@ footer.navbar {
     font-weight: 700 !important;
   }
 
-  .outloud-booking-content p:last-of-type {
-    margin-top: 10px;
-    font-size: 0.85rem !important;
-    line-height: 1.2 !important;
-  }
+.outloud-booking-content p:last-of-type {
+  margin-top: 15px; /* Tighter gap to pull the email upwards */
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
 
   .outloud-booking-content a {
     font-size: 1rem;
