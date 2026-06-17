@@ -632,21 +632,45 @@ body::after {
 
 .outloud-booking-content {
   position: absolute;
-  inset: 20% 20% 15% 20%;
+  inset: 12%; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 12px;
-  padding: 0 10px;
-  color: #2b241d;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  overflow-y: auto;
+  color: #111;
+  overflow: visible;
+}
+
+.outloud-booking-content p {
+  font-size: 1.25rem !important; /* Brought down from 1.5rem to prevent spillover */
+  line-height: 1.5 !important;
+  font-weight: 700 !important; /* Bolds the regular text */
+  margin: 0;
+}
+
+.outloud-booking-content p:first-of-type {
+  font-size: 1.05rem !important; /* Brought down to keep it compact */
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  margin: 0;
+}
+
+.outloud-booking-content p:last-of-type {
+  margin-top: 15px; /* Tighter gap to pull the email upwards */
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
   font-weight: 700 !important;
 }
 
+.outloud-booking-content a {
+  display: inline-block;
+  margin-top: 4px; /* Keeps it close to its label */
+  font-size: 1.35rem; /* Scaled down so it doesn't push out of the frame */
+  font-weight: 800 !important;
+  color: #111;
+  text-decoration: underline;
+}
 
 /* ================================
    COLLAB + SOCIAL MEDIA
@@ -784,6 +808,59 @@ footer.navbar {
   padding-right: 16px;
 }
 
+/* ==========================================================
+   LARGE DESKTOP FIX (1201px and Above)
+========================================================== */
+@media (min-width: 1201px) {
+  /* ==========================================================
+   OUTLOUD BOOKING (Sideways Overflow Fix for 1201px+)
+========================================================== */
+.outloud-booking-content {
+  position: absolute;
+  inset: 12%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #111;
+  overflow: visible;
+
+  /* THE LARGE SCREEN FIX: Restricts the text container's width 
+     so it never wider-outflows past the inner artwork canvas */
+  width: 76%;
+  max-width: 320px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* "Mers is available..." - Kept clean and compact */
+.outloud-booking-content p:first-of-type {
+  font-size: 1.05rem !important; 
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  margin: 0;
+}
+
+/* "Submit booking inquiries to:" */
+.outloud-booking-content p:last-of-type {
+  margin-top: 15px; 
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+/* The actual clickable email link string */
+.outloud-booking-content a {
+  display: inline-block;
+  margin-top: 4px; 
+  font-size: 1.35rem; 
+  font-weight: 800 !important;
+  color: #111;
+  text-decoration: underline;
+}
+}
 
 /* ================================
    RESPONSIVE — Large (1200px)
@@ -1199,11 +1276,28 @@ footer.navbar {
   }
 
   .outloud-booking-content {
-    font-size: 0.68rem;
-    line-height: 1.25;
-    inset: 14% 16% 10% 16%;
-    gap: 4px;
-    padding: 0 4px;
+    inset: 12%; /* Maintains the uniform framing boundary */
+  }
+
+  .outloud-booking-content p {
+    font-size: 0.9rem !important; /* Compact, safe sizing for phones */
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+  }
+
+  .outloud-booking-content p:last-of-type {
+    margin-top: 8px;
+    font-size: 0.85rem !important;
+  }
+
+  .outloud-booking-content p:last-of-type {
+    margin-top: 10px; /* Compresses nicely for small mobile screen heights */
+  }
+
+  .outloud-booking-content a {
+    font-size: 0.95rem;
+    font-weight: 800 !important;
+    margin-top: 2px;
   }
 
   .outloud-list-content {
