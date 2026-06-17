@@ -28,6 +28,7 @@ html, body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  background-color: #1a1f18;
 }
 
 img {
@@ -998,25 +999,29 @@ footer.navbar {
 }
 
 /* ==========================================================
-   DESKTOP PATCHES (769px and up)
+   DESKTOP PATCHES (769px and up) - Compact Text Size
 ========================================================== */
 @media (min-width: 769px) {
-  /* 1. Remove the scrollbars from the text frames */
-  .producer-frame .frame-inner,
-  .composer-frame .frame-inner {
-    overflow-y: hidden !important;
+  .artist-frame .artist-frame-content {
+    overflow: hidden !important; 
   }
   
-  .producer-frame .frame-inner::-webkit-scrollbar,
-  .composer-frame .frame-inner::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
+  .artist-frame-content::-webkit-scrollbar {
+    display: none !important; 
   }
 
-  /* 2. Shift Musical Landscape text upward out of the "droop" */
-  .musical-landscape-section .section-header-container {
-    transform: translateY(-40px); /* Adjust this pixel value to nudge it perfectly */
+  /* Drop the font size and tighten the line height to force it to shrink */
+  .artist-frame-content p {
+    font-size: 0.70rem !important; 
+    line-height: 1.35 !important;
+  }
+
+  /* Shift Musical Landscape text upward out of the "droop" line */
+  .musical-landscape {
+    margin: calc(var(--space-xl) - 50px) auto var(--space-xl) auto !important; 
+    transform: translateY(-35px);
     position: relative;
-    z-index: 10;
+    z-index: 5;
   }
 }
 
