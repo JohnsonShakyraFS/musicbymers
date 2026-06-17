@@ -1220,6 +1220,18 @@ footer.navbar {
    RESPONSIVE — Mobile (480px)
 ================================ */
 @media (max-width: 480px) {
+  html, body {
+    background: url("images/floralbackground.png") repeat !important;
+    background-size: auto !important;
+  }
+  
+  /* Forces the underlying pseudo-element to match the clean continuous repeat */
+  body::before {
+    position: absolute !important;
+    background-repeat: repeat !important;
+    background-size: auto !important;
+  }
+  
   .navbar ul {
     gap: 14px;
     flex-wrap: wrap;
