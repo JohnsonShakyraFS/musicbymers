@@ -1024,27 +1024,7 @@ footer.navbar {
    RESPONSIVE — Tablet (768px)
 ================================ */
 @media (max-width: 768px) {
-  html, body {
-    background-color: #1a2315; /* Match your dark floral wallpaper tone to hide leaks */
-    margin: 0;
-    padding: 0;
-  }
-
-  .artist-at-work-section,
-  .musical-landscape-section,
-  .outloud-booking-section {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* 2. Shrink the Outloud booking email link so it wraps natively inside bookingframe.png */
-  .outloud-booking-frame .email a {
-    font-size: 0.9rem !important; /* Brought down so it stays strictly within the inner frame canvas */
-    word-break: break-all;        /* Structural safety fallback for ultra-narrow viewports */
-  }
-
+  
   .navbar ul {
     gap: 24px;
   }
