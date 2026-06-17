@@ -1352,6 +1352,11 @@ footer.navbar {
     margin-top: 4px;
   }
 
+  .outloud-booking-frame .email a {
+    font-size: 1.2rem !important; /* Brought down so it stays strictly within the inner frame canvas */
+    word-break: break-all;
+  }
+
   .outloud-list-content {
     inset: 10% 18%;
   }
