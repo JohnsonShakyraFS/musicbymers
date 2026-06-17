@@ -300,6 +300,7 @@ body::after {
 
 .artist-frame-content p {
   font-size: clamp(.8rem, 1.3vw, 1.05rem);
+  font-weight: 700 !important;
   line-height: 1.4;
   margin: 0;
   overflow-wrap: break-word;
@@ -619,6 +620,7 @@ body::after {
   text-align: center;
   color: #2b241d;
   overflow: auto;
+  font-weight: 700 !important;
 }
 
 .outloud-list-content ul {
@@ -642,6 +644,7 @@ body::after {
   font-size: 0.95rem;
   line-height: 1.5;
   overflow-y: auto;
+  font-weight: 700 !important;
 }
 
 
@@ -958,7 +961,7 @@ footer.navbar {
     height: 500px;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     scroll-behavior: smooth;
   }
 

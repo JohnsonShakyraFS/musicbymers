@@ -194,7 +194,7 @@
  
       <!-- Col 2, Row 1: Hyper-Pop pin -->
       <div class="gw-pin gw-hyperpop">
-        <img src="images/Hyper-Pop Pin.png" alt="Hyper-Pop">
+        <img src="images/Hyperpop Pin.png" alt="Hyper-Pop">
       </div>
  
       <!-- Col 3, Row 1: Aesthetic portrait photo -->
@@ -224,7 +224,7 @@
  
       <!-- Col 4, Row 2: Portrait photo -->
       <div class="gw-photo gw-pic-mid">
-        <img src="images/cameraframe.png" alt="Mers holding camera" class="gw-frame-img">
+        <img src="images/cameraholding.png" alt="Mers holding camera" class="gw-frame-img">
       </div>
  
       <!-- Col 1, Rows 3-4: Folk pin (tall) -->
@@ -376,10 +376,30 @@
   </footer>
 
   <script>
-    function slideCarousel(direction) {
-      const carousel = document.querySelector('.artist-frames-carousel');
-      const cardWidth = carousel.offsetWidth;
-      carousel.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    const carousel = document.querySelector('.artist-frames-carousel');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+  
+    if (carousel && leftArrow && rightArrow) {
+      rightArrow.addEventListener('click', () => {
+        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+        // If we are at or near the end, loop back to the beginning
+        if (carousel.scrollLeft >= maxScrollLeft - 5) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+        }
+      });
+  
+      leftArrow.addEventListener('click', () => {
+        // If we are at the very start, loop to the far right end
+        if (carousel.scrollLeft <= 5) {
+          const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+          carousel.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+        }
+      });
     }
   </script>
 
