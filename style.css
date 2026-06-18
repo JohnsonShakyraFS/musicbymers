@@ -19,6 +19,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   scroll-behavior: smooth;
   background-color: #2d3a2e;
@@ -150,7 +151,7 @@ body::after {
 
 
 /* ================================
-   ABOUT
+   ABOUT (Desktop - Steady Sizing Locked)
 ================================ */
 .about {
   width: min(1100px, 90%);
@@ -368,6 +369,7 @@ body::after {
   margin: var(--space-xl) auto;
 }
 
+/* Header: shelf | title | shelf */
 .ml-header {
   display: flex;
   align-items: flex-end;
@@ -405,10 +407,12 @@ body::after {
   display: block;
 }
 
+/* Flip the right shelf horizontally */
 .ml-shelf-right img {
   transform: scaleX(-1);
 }
 
+/* ---- Gallery wall ---- */
 .gallery-wall {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -417,6 +421,7 @@ body::after {
   align-items: center;
 }
 
+/* ---- Photo wrapper (frame pattern) ---- */
 .gw-photo {
   position: relative;
   overflow: hidden;
@@ -445,6 +450,7 @@ body::after {
   align-items: center;
 }
 
+/* Specific layout overrides for the desktop guitar slot */
 .gallery-wall .gw-photo.gw-guitar {
   grid-column: 2; 
   grid-row: 2 / 4; 
@@ -480,6 +486,7 @@ body::after {
   display: block;
 }
 
+/* Geometric corrections for specific custom shapes */
 .gw-folk .gw-photo-inner {
   top: 24%;
   bottom: 24%;
@@ -488,6 +495,7 @@ body::after {
   border-radius: 50% / 43%; 
 }
 
+/* ---- Pin wrapper (natural size, centered) ---- */
 .gw-pin {
   display: flex;
   align-items: center;
@@ -500,26 +508,28 @@ body::after {
   display: block;
 }
 
-/* Row 1 Grid */
+/* ---- Grid placements ---- */
+
+/* Row 1 */
 .gw-mers-pic    { grid-column: 1; grid-row: 1; transform: rotate(-2deg); }
 .gw-hyperpop    { grid-column: 2; grid-row: 1; transform: rotate(1.5deg); align-self: end; }
 .gw-tree-pic    { grid-column: 3; grid-row: 1; transform: rotate(-1deg); }
 .gw-incidental  { grid-column: 4; grid-row: 1; transform: rotate(2deg); align-self: end; }
 
-/* Row 2 Grid */
+/* Row 2 */
 .gw-cmt         { grid-column: 1; grid-row: 2; transform: rotate(-1.5deg); align-self: center; }
 .gw-alt         { grid-column: 3; grid-row: 2; transform: rotate(-2deg); align-self: center; }
 .gw-pic-mid     { grid-column: 4; grid-row: 2; transform: rotate(1.5deg); }
 
-/* Row 3 Grid */
+/* Row 3 */
 .gw-folk        { grid-column: 1; grid-row: 3 / 5; transform: rotate(-1deg); align-self: start; }
 .gw-electronic  { grid-column: 4; grid-row: 3; transform: rotate(1deg); align-self: center; }
 
-/* Row 4 Grid */
+/* Row 4 */
 .gw-indie       { grid-column: 2; grid-row: 4; transform: rotate(2deg); align-self: end; }
 .gw-pic-bottom  { grid-column: 3; grid-row: 3 / 5; transform: rotate(-1.5deg); align-self: start; }
 
-/* Row 5 Grid */
+/* Row 5: Jazz banner centered */
 .gw-jazz        { grid-column: 4; grid-row: 4; justify-self: center; width: 100%; transform: rotate(-0.5deg); }
 
 
@@ -636,19 +646,19 @@ body::after {
 }
 
 .outloud-booking-content p {
-  font-size: 1.25rem !important; 
+  font-size: 1.25rem !important; /* Brought down from 1.5rem to prevent spillover */
   line-height: 1.5 !important;
   margin: 0;
 }
 
 .outloud-booking-content p:first-of-type {
-  font-size: 1.05rem !important; 
+  font-size: 1.05rem !important; /* Brought down to keep it compact */
   line-height: 1.4 !important;
   margin: 0;
 }
 
 .outloud-booking-content p:last-of-type {
-  margin-top: 15px; 
+  margin-top: 15px; /* Tighter gap to pull the email upwards */
   font-size: 1.1rem !important;
   line-height: 1.3 !important;
   font-weight: 700 !important;
@@ -656,17 +666,19 @@ body::after {
 
 .outloud-booking-content a {
   display: inline-block;
-  margin-top: 4px; 
-  font-size: 1.35rem; 
+  margin-top: 4px; /* Keeps it close to its label */
+  font-size: 1.35rem; /* Scaled down so it doesn't push out of the frame */
   font-weight: 800 !important;
   color: #111;
   text-decoration: underline;
 }
 
+/* Explicitly removes any forced bolding from the paragraph elements */
 .outloud-booking-frame p {
   font-weight: normal !important;
 }
 
+/* Keeps the email block matching your original .email bold/size rules */
 .outloud-booking-frame .email {
   font-weight: bold !important;
   margin-top: 15px;
@@ -677,6 +689,7 @@ body::after {
   color: inherit;
   text-decoration: underline;
 }
+
 
 
 /* ================================
@@ -815,52 +828,59 @@ footer.navbar {
   padding-right: 16px;
 }
 
-
 /* ==========================================================
    LARGE DESKTOP FIX (1201px and Above)
 ========================================================== */
 @media (min-width: 1201px) {
-  .outloud-booking-content {
-    position: absolute;
-    inset: 12%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #111;
-    overflow: visible;
-    width: 76%;
-    max-width: 320px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+  /* ==========================================================
+   OUTLOUD BOOKING (Sideways Overflow Fix for 1201px+)
+========================================================== */
+.outloud-booking-content {
+  position: absolute;
+  inset: 12%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #111;
+  overflow: visible;
 
-  .outloud-booking-content p:first-of-type {
-    font-size: 1.05rem !important; 
-    line-height: 1.4 !important;
-    font-weight: 700 !important;
-    margin: 0;
-  }
-
-  .outloud-booking-content p:last-of-type {
-    margin-top: 15px; 
-    font-size: 1.1rem !important;
-    line-height: 1.3 !important;
-    font-weight: 700 !important;
-  }
-
-  .outloud-booking-content a {
-    display: inline-block;
-    margin-top: 4px; 
-    font-size: 1.35rem; 
-    font-weight: 800 !important;
-    color: #111;
-    text-decoration: underline;
-  }
+  /* THE LARGE SCREEN FIX: Restricts the text container's width 
+     so it never wider-outflows past the inner artwork canvas */
+  width: 76%;
+  max-width: 320px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
+/* "Mers is available..." - Kept clean and compact */
+.outloud-booking-content p:first-of-type {
+  font-size: 1.05rem !important; 
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  margin: 0;
+}
+
+/* "Submit booking inquiries to:" */
+.outloud-booking-content p:last-of-type {
+  margin-top: 15px; 
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+/* The actual clickable email link string */
+.outloud-booking-content a {
+  display: inline-block;
+  margin-top: 4px; 
+  font-size: 1.35rem; 
+  font-weight: 800 !important;
+  color: #111;
+  text-decoration: underline;
+}
+}
 
 /* ================================
    RESPONSIVE — Large (1200px)
@@ -914,7 +934,7 @@ footer.navbar {
    RESPONSIVE — Mid-Tablet (990px)
 ================================ */
 @media (max-width: 990px) {
-  about {
+  .about {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -980,9 +1000,8 @@ footer.navbar {
   }
 }
 
-
 /* ==========================================================
-   DESKTOP PATCHES (769px and up)
+   DESKTOP PATCHES (769px and up) - Compact Text Size
 ========================================================== */
 @media (min-width: 769px) {
   .artist-frame .artist-frame-content {
@@ -993,11 +1012,13 @@ footer.navbar {
     display: none !important; 
   }
 
+  /* Drop the font size and tighten the line height to force it to shrink */
   .artist-frame-content p {
     font-size: 0.70rem !important; 
     line-height: 1.35 !important;
   }
 
+  /* Shift Musical Landscape text upward out of the "droop" line */
   .musical-landscape {
     margin: calc(var(--space-xl) - 50px) auto var(--space-xl) auto !important; 
     transform: translateY(-35px);
@@ -1006,11 +1027,11 @@ footer.navbar {
   }
 }
 
-
 /* ================================
    RESPONSIVE — Tablet (768px)
 ================================ */
 @media (max-width: 768px) {
+  
   .navbar ul {
     gap: 24px;
   }
@@ -1090,7 +1111,7 @@ footer.navbar {
     position: absolute;
     inset: 25% 12% 8%;
     padding: 6% 6%;
-    overflow: hidden !important;
+    overflow: auto;
     justify-content: flex-start;
   }
 
@@ -1100,9 +1121,7 @@ footer.navbar {
   }
 
   .artist-frame-mobile .artist-frame-content p {
-    font-family: "Cormorant Garamond", serif !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
+    font-size: 10px;
     line-height: 1.35;
   }
 
@@ -1176,12 +1195,12 @@ footer.navbar {
   .outloud-list-content {
     overflow: hidden !important; 
     overflow-y: hidden !important;
-    inset: 12% 20% !important; 
+    inset: 10% 16% !important; 
   }
 
   .outloud-list-content ul {
-    font-size: 0.75rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
   }
 
   .social-collab-container {
@@ -1208,15 +1227,16 @@ footer.navbar {
 }
 
 
-/* ==========================================================
+/* ================================
    RESPONSIVE — Mobile (480px)
-========================================================== */
+================================ */
 @media (max-width: 480px) {
   html, body {
     background: url("images/floralbackground.png") repeat !important;
     background-size: auto !important;
   }
   
+  /* Forces the underlying pseudo-element to match the clean continuous repeat */
   body::before {
     position: absolute !important;
     background-repeat: repeat !important;
@@ -1268,32 +1288,35 @@ footer.navbar {
     font-size: 0.95rem;
   }
 
-  .gallery-wall {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
+/* ---- Cleaned Up Mobile Gallery Wall ---- */
+.gallery-wall {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
 
-  .gw-photo {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
+.gw-photo {
+  position: relative;
+  width: 100%;
+  height: auto;        /* Removes the 1/1 square restriction */
+  overflow: visible;    /* Keeps decorative frame edges safe */
+}
 
-  .gw-frame-img,
-  .gw-photo-content {
-    display: block !important;
-    width: 100%;
-    height: auto;
-    position: relative;
-    inset: 0;
-    z-index: 1;
-  }
+/* Target BOTH classes since they are mixed in the HTML right now */
+.gw-frame-img,
+.gw-photo-content {
+  display: block !important; /* Forces them to be visible again */
+  width: 100%;
+  height: auto;              /* Lets the frames scale naturally */
+  position: relative;        /* Overrides desktop absolute positioning */
+  inset: 0;                  /* Resets coordinate positions */
+  z-index: 1;
+}
 
-  .gw-photo-inner {
-    display: none;
-  }
+/* Safely deactivate the inner overlay container from desktop */
+.gw-photo-inner {
+  display: none;
+}
 
   .gw-guitar .gw-photo-inner {
     inset: 17% 14% 16% 14%;
@@ -1322,57 +1345,55 @@ footer.navbar {
     font-size: 0.9rem;
   }
 
-  .outloud-booking-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    max-width: 250px; 
-    margin: 0 auto;
-    overflow: visible;
-  }
+    .outloud-booking-content {
+      /* Pulls the layout back into the exact center of the mobile frame asset */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      /* Strict horizontal bounds to prevent edge spillover on wide mobile viewports */
+      width: 85%;
+      max-width: 250px; 
+      margin: 0 auto;
+      overflow: visible;
+    }
 
   .outloud-booking-content p {
-    font-family: "Cormorant Garamond", serif !important;
-    font-weight: 600 !important;
-    font-size: 0.85rem !important; 
+    font-size: 0.9rem !important; /* Compact, safe sizing for phones */
     line-height: 1.3 !important;
   }
 
   .outloud-booking-content p:first-of-type {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     line-height: 1.3 !important;
   }
 
-  .outloud-booking-content p:last-of-type {
-    margin-top: 10px; 
-    font-size: 0.9rem !important;
-    line-height: 1.3 !important;
-  }
+.outloud-booking-content p:last-of-type {
+  margin-top: 15px; /* Tighter gap to pull the email upwards */
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
 
-  .outloud-booking-frame .email {
-    margin-top: 4px !important;
-    width: 100%;
-    text-align: center;
+}
+
+  .outloud-booking-content a {
+    font-size: 0.65rem;
+    font-weight: 800 !important;
+    margin-top: 4px;
   }
 
   .outloud-booking-frame .email a {
-    font-size: 0.95rem !important; 
-    white-space: nowrap !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    letter-spacing: -0.3px;
+    font-size: 1.2rem !important; /* Brought down so it stays strictly within the inner frame canvas */
+    word-break: break-all;
   }
 
   .outloud-list-content {
-    inset: 14% 20% !important;
-    overflow: hidden !important;
+    inset: 10% 18%;
   }
 
   .outloud-list-content ul {
-    font-size: 0.58rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.7rem;
+    line-height: 1.4;
   }
 
   .collab-column h2,
@@ -1396,5 +1417,43 @@ footer.navbar {
 
   .gold-frame {
     height: 240px;
+  }
+}
+
+/* ==========================================================
+   NAOMI'S PIXEL 6 PATCH (400px and under)
+========================================================== */
+@media (max-width: 400px) {
+  /* Give the inner booking container maximum breathing room */
+  .outloud-booking-content {
+    width: 92% !important;
+    max-width: 225px !important;
+  }
+
+  /* Tuck the booking font sizes down just a hair more */
+  .outloud-booking-content p {
+    font-size: 0.78rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .outloud-booking-content p:last-of-type {
+    margin-top: 6px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Scale down the email link so it sits strictly on one line */
+  .outloud-booking-frame .email a {
+    font-size: 0.85rem !important;
+    letter-spacing: -0.4px !important;
+  }
+
+  /* Shrink the Outloud list items to prevent the overflow scrollbar */
+  .outloud-list-content {
+    inset: 15% 20% !important;
+  }
+
+  .outloud-list-content ul {
+    font-size: 0.52rem !important;
+    line-height: 1.3 !important;
   }
 }
