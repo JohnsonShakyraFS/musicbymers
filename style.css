@@ -1439,6 +1439,7 @@ footer.navbar {
   .outloud-booking-content {
     width: 92% !important;
     max-width: 225px !important;
+    padding: 0 13% !important;
   }
 
   /* Tuck the booking font sizes down just a hair more */
