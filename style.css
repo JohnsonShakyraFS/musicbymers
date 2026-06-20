@@ -1227,16 +1227,16 @@ footer.navbar {
 }
 
 
-/* ================================
+/* ==========================================================
    RESPONSIVE — Mobile (480px)
-================================ */
+   Balances larger displays like iPhone 16 Pro Max
+========================================================== */
 @media (max-width: 480px) {
   html, body {
     background: url("images/floralbackground.png") repeat !important;
     background-size: auto !important;
   }
   
-  /* Forces the underlying pseudo-element to match the clean continuous repeat */
   body::before {
     position: absolute !important;
     background-repeat: repeat !important;
@@ -1288,35 +1288,32 @@ footer.navbar {
     font-size: 0.95rem;
   }
 
-/* ---- Cleaned Up Mobile Gallery Wall ---- */
-.gallery-wall {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
+  .gallery-wall {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
-.gw-photo {
-  position: relative;
-  width: 100%;
-  height: auto;        /* Removes the 1/1 square restriction */
-  overflow: visible;    /* Keeps decorative frame edges safe */
-}
+  .gw-photo {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
 
-/* Target BOTH classes since they are mixed in the HTML right now */
-.gw-frame-img,
-.gw-photo-content {
-  display: block !important; /* Forces them to be visible again */
-  width: 100%;
-  height: auto;              /* Lets the frames scale naturally */
-  position: relative;        /* Overrides desktop absolute positioning */
-  inset: 0;                  /* Resets coordinate positions */
-  z-index: 1;
-}
+  .gw-frame-img,
+  .gw-photo-content {
+    display: block !important;
+    width: 100%;
+    height: auto;
+    position: relative;
+    inset: 0;
+    z-index: 1;
+  }
 
-/* Safely deactivate the inner overlay container from desktop */
-.gw-photo-inner {
-  display: none;
-}
+  .gw-photo-inner {
+    display: none;
+  }
 
   .gw-guitar .gw-photo-inner {
     inset: 17% 14% 16% 14%;
@@ -1345,15 +1342,15 @@ footer.navbar {
     font-size: 0.8rem;
   }
 
-  /* Fixes the booking frame overflow by tightening width & clipping box space */
+  /* Centered and padded cleanly for larger mobile devices */
   .outloud-booking-content {
     position: absolute;
     top: 50% !important;
     left: 50% !important;
-    transform: translate(-50%, -50%) !important; /* Perfect dead-center lock */
+    transform: translate(-50%, -50%) !important;
     
-    width: 100% !important; /* Spans the full asset width... */
-    padding: 0 8% !important; /* ...but pushes the text inward by 16% on both sides */
+    width: 100% !important;
+    padding: 0 14% !important; /* Pushes text inward safely on iPhone 16 Pro Max */
     max-width: none !important;
     margin: 0 !important;
     overflow: visible;
@@ -1365,49 +1362,46 @@ footer.navbar {
   }
 
   .outloud-booking-content p {
-    font-size: 0.75rem !important; /* Scaled down from 0.9rem */
-    line-height: 1 !important;
+    font-size: 0.82rem !important; /* Slightly more readable on larger Pro Max screen */
+    line-height: 1.25 !important;
   }
 
   .outloud-booking-content p:first-of-type {
-    font-size: 0.75rem !important; /* Shrunk down from 0.8rem */
-    line-height: 1 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
   }
 
   .outloud-booking-content p:last-of-type {
-    margin-top: 6px !important; /* Tighter gap to stop vertical spillover */
-    font-size: 0.82rem !important; /* Scaled down from 1.1rem */
+    margin-top: 8px !important;
+    font-size: 0.88rem !important;
     line-height: 1.25 !important;
   }
 
   .outloud-booking-content a {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     font-weight: 800 !important;
-    margin-top: 2px;
+    margin-top: 4px;
   }
 
-  /* SYNCED EMAIL SIZES: Locks the booking and collab emails to the exact same safe size */
   .outloud-booking-frame .email a,
   .social-collab-section .email a {
-    font-size: 0.88rem !important; /* Balanced size to match both sections seamlessly */
-    white-space: nowrap !important; /* Guarantees the link stays on one line */
-    word-break: normal !important;  /* Overrides the break-all layout bug */
+    font-size: 0.92rem !important; /* Looks balanced on Pro Max layout */
+    white-space: nowrap !important;
+    word-break: normal !important;
     letter-spacing: -0.3px !important;
   }
 
-  /* Scales down the surrounding collab email wrapper to match */
   .social-collab-section .email {
-    font-size: 0.88rem !important;
+    font-size: 0.92rem !important;
     margin-top: 15px !important;
   }
 
-  /* Shrinks the Outloud text list to prevent the list overflow scrollbar */
   .outloud-list-content {
     inset: 12% 20% !important;
   }
 
   .outloud-list-content ul {
-    font-size: 0.52rem !important; /* Dropped from 0.7rem to stay within the graphic bounds */
+    font-size: 0.58rem !important;
     line-height: 1.3 !important;
   }
 
@@ -1433,33 +1427,44 @@ footer.navbar {
 
 /* ==========================================================
    NAOMI'S PIXEL 6 PATCH (400px and under)
+   Tighter restrictions for narrower viewports
 ========================================================== */
 @media (max-width: 400px) {
-  /* Give the inner booking container maximum breathing room */
   .outloud-booking-content {
-    width: 92% !important;
-    max-width: 225px !important;
-    padding: 0 13% !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 13% !important; /* Holds text safe inside narrow frame asset */
   }
 
-  /* Tuck the booking font sizes down just a hair more */
   .outloud-booking-content p {
-    font-size: 0.78rem !important;
+    font-size: 0.72rem !important; /* Scaled down for 393px screens */
+    line-height: 1.25 !important;
+  }
+
+  .outloud-booking-content p:first-of-type {
+    font-size: 0.72rem !important;
     line-height: 1.25 !important;
   }
 
   .outloud-booking-content p:last-of-type {
     margin-top: 6px !important;
+    font-size: 0.76rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .outloud-booking-frame .email a,
+  .social-collab-section .email a {
+    font-size: clamp(0.72rem, 3.2vw, 0.82rem) !important; /* Maximum compression for long strings */
+    letter-spacing: -0.5px !important;
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  .social-collab-section .email {
     font-size: 0.82rem !important;
   }
 
-  /* Scale down the email link so it sits strictly on one line */
-  .outloud-booking-frame .email a {
-    font-size: 0.85rem !important;
-    letter-spacing: -0.4px !important;
-  }
-
-  /* Shrink the Outloud list items to prevent the overflow scrollbar */
   .outloud-list-content {
     inset: 15% 20% !important;
   }
@@ -1468,15 +1473,4 @@ footer.navbar {
     font-size: 0.52rem !important;
     line-height: 1.3 !important;
   }
-
-  /* SYNCED EMAIL SIZES: Maximum compression for small screens */
-  .outloud-booking-frame .email a,
-  .social-collab-section .email a {
-    font-size: clamp(0.72rem, 3.2vw, 0.82rem) !important; /* Forces scaling on narrow viewports */
-    letter-spacing: -0.5px !important;                 /* Tighter character tracking */
-    white-space: nowrap !important;                    /* Prevents breaking onto two lines */
-    word-break: normal !important; 
-    overflow-wrap: normal !important;
-  }
 }
-
